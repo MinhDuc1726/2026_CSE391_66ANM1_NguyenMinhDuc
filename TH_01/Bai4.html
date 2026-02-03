@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information Form</title>
+</head>
+<body>
+    <form style="width: 500px; margin: 20px auto; font-family: Arial, sans-serif; background-color: #f5f5f5; padding: 20px; border: 1px solid #ccc;">
+        
+        <!-- Basic Info Section -->
+        <fieldset style="border: none; padding: 0; margin-bottom: 20px;">
+            <legend style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">Basic Info</legend>
+            <hr style="border: 1px solid #333; margin-bottom: 15px;">
+            
+            <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td width="30%"><label for="empId"><b>Employee ID</b></label></td>
+                    <td><input type="text" id="empId" name="empId" value="9" style="width: 50px;"></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName"><b>Last Name</b></label></td>
+                    <td><input type="text" id="lastName" name="lastName" value="Dodsworth" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="firstName"><b>First Name</b></label></td>
+                    <td>
+                        <input type="text" id="firstName" name="firstName" value="Anne" style="width: 100%;">
+                        <span style="border: 1px solid #999; padding: 2px 5px; margin-left: 5px; background-color: #fff;">i</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><label><b>Gender</b></label></td>
+                    <td>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label><br>
+                        <input type="radio" id="xxx" name="gender" value="xxx">
+                        <label for="xxx">XXX</label><br>
+                        <input type="radio" id="zzz" name="gender" value="zzz" checked>
+                        <label for="zzz">ZZZ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="title"><b>Title</b></label></td>
+                    <td><input type="text" id="title" name="title" value="Sales Representative" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="suffix"><b>Suffix</b></label></td>
+                    <td><input type="text" id="suffix" name="suffix" value="Ms." style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="birthDate"><b>BirthDate</b></label></td>
+                    <td>
+                        <input type="text" id="birthDate" name="birthDate" value="1969-07-02 00:00:00" style="width: 100%;">
+                        <span style="border: 1px solid #999; padding: 2px 5px; margin-left: 5px; background-color: #fff;">?</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="hireDate"><b>HireDate</b></label></td>
+                    <td><input type="text" id="hireDate" name="hireDate" value="1994-11-15 00:00:00" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="applicable"><b>Sbi # (if applicable)</b></label></td>
+                    <td>
+                        <input type="text" id="applicable" name="applicable" style="width: 100%;">
+                        <span style="border: 1px solid #999; padding: 2px 5px; margin-left: 5px; background-color: #fff;">⊙</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="reportsTo"><b>Reports To</b></label></td>
+                    <td>
+                        <select id="reportsTo" name="reportsTo" style="padding: 3px;">
+                            <option value="buchanan" selected>Buchanan</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <button type="button" style="margin-left: 5px; padding: 2px 8px;">↑</button>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Contact Info Section -->
+        <fieldset style="border: none; padding: 0; margin-bottom: 20px;">
+            <legend style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">Contact Info</legend>
+            <hr style="border: 1px solid #333; margin-bottom: 15px;">
+            
+            <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td width="30%"><label for="email"><b>Email</b></label></td>
+                    <td><input type="email" id="email" name="email" value="name@example.com" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="address"><b>Address</b></label></td>
+                    <td><input type="text" id="address" name="address" value="7 Houndstooth Rd." style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="city"><b>City</b></label></td>
+                    <td><input type="text" id="city" name="city" value="London" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="region"><b>Region</b></label></td>
+                    <td><input type="text" id="region" name="region" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="postalCode"><b>Postal Code</b></label></td>
+                    <td><input type="text" id="postalCode" name="postalCode" value="WG2 7LT" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="country"><b>Country</b></label></td>
+                    <td>
+                        <select id="country" name="country" style="width: 100%; padding: 3px;">
+                            <option value="russian" selected>Russian Federation</option>
+                            <option value="usa">United States</option>
+                            <option value="uk">United Kingdom</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="phone"><b>US Home Phone</b></label></td>
+                    <td><input type="tel" id="phone" name="phone" value="(234)234 2342" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><label for="photo"><b>Photo</b></label></td>
+                    <td><input type="text" id="photo" name="photo" value="EmpID9.bmp" style="width: 100%;"></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Optional Info Section -->
+        <fieldset style="border: none; padding: 0; margin-bottom: 20px;">
+            <legend style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">Optional Info</legend>
+            <hr style="border: 1px solid #333; margin-bottom: 15px;">
+            
+            <table width="100%" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td width="30%" valign="top"><label for="notes"><b>Notes</b></label></td>
+                    <td>
+                        <!-- Toolbar -->
+                        <div style="background-color: #e0e0e0; padding: 5px; border: 1px solid #999; margin-bottom: 5px;">
+                            <button type="button" style="padding: 2px 5px; margin: 2px;"><b>B</b></button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;"><i>I</i></button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;"><u>U</u></button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">S</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">≡</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">≣</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">☰</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">📋</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">📎</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">🔗</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">χ</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">x²</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">🎨</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">🖍</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">⋮</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">⋯</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">⚙</button>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">🗑</button>
+                            <br>
+                            <select style="margin: 2px; padding: 2px;">
+                                <option>🖊</option>
+                            </select>
+                            <select style="margin: 2px; padding: 2px;">
+                                <option>10</option>
+                            </select>
+                            <select style="margin: 2px; padding: 2px;">
+                                <option>11</option>
+                            </select>
+                            <button type="button" style="padding: 2px 5px; margin: 2px;">❌</button>
+                        </div>
+                        <textarea id="notes" name="notes" rows="5" style="width: 100%; border: 1px solid #999;">Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German ZZZ</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><label><b>Preferred Shift</b></label></td>
+                    <td>
+                        <input type="checkbox" id="regular" name="shift" value="regular">
+                        <label for="regular">Regular</label><br>
+                        <input type="checkbox" id="graveyard" name="shift" value="graveyard" checked>
+                        <label for="graveyard">Grave Yard</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label><b>Active?</b></label></td>
+                    <td>
+                        <input type="checkbox" id="active" name="active" checked>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="captcha"><b>Are you human?</b></label></td>
+                    <td>
+                        <div style="border: 1px solid #999; padding: 10px; background-color: #fff; text-align: center; margin-bottom: 5px;">
+                            <span style="font-family: 'Courier New', monospace; font-size: 24px; letter-spacing: 5px; text-decoration: line-through;">TIDANO</span>
+                        </div>
+                        <a href="#" style="color: blue; text-decoration: underline;">Click to change</a>
+                        <input type="text" id="captcha" name="captcha" style="width: 100%; margin-top: 5px; padding: 5px;">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Navigation and Buttons -->
+        <div style="margin-top: 20px;">
+            <div style="float: left;">
+                <button type="button" style="padding: 5px 10px; margin-right: 5px; background-color: #333; color: white; border: none;">◄</button>
+                <button type="button" style="padding: 5px 10px; background-color: #333 color: white; border: none;">►</button>
+                <br>
+                <small>* required</small>
+            </div>
+            <div style="float: right;">
+                <button type="submit" style="padding: 8px 20px; margin-left: 5px; background-color: #333; color: white; border: none;">📄 Submit</button>
+                <button type="button" style="padding: 8px 20px; margin-left: 5px; background-color: #333; color: white; border: none;">✖ Cancel</button>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </form>
+</body>
+</html>

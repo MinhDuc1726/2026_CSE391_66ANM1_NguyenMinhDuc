@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BÀI TẬP 05: Xây dựng giao diện tương tự như sau</title>
+</head>
+<body bgcolor="#E8F4F8">
+    
+    <!-- Header -->
+    <table width="100%" bgcolor="#5DADE2" cellpadding="10">
+        <tr>
+            <td>
+                <font color="white" size="5"><b>HR Management</b></font>
+                <font color="white">&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;Contact</font>
+            </td>
+            <td align="right">
+                <input type="text" placeholder="Search..." size="30">
+                <input type="button" value="Search">
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <!-- Employee Table -->
+    <table width="95%" align="center" border="1" cellpadding="10" cellspacing="0" bgcolor="white">
+        <tr>
+            <td colspan="6">
+                <font size="4"><b>Employee</b></font>
+                <div align="right">
+                    <input type="button" value="+ Add" style="background-color: #007BFF; color: white;">
+                </div>
+            </td>
+        </tr>
+        <tr bgcolor="#F0F0F0">
+            <td><b>ID</b></td>
+            <td><b>Name</b></td>
+            <td><b>Email</b></td>
+            <td><b>Phone</b></td>
+            <td><b>Position</b></td>
+            <td><b>Action</b></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Fatima Beatriz</td>
+            <td>Fatima Beatriz@gmail.com</td>
+            <td>0989524321</td>
+            <td>Staff</td>
+            <td>
+                <input type="button" value="Edit" style="background-color: #FFC107; color: black;">
+                <input type="button" value="Delete" style="background-color: #DC3545; color: white;">
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Gabriel Hanna</td>
+            <td>Gabriel Hanna@gmail.com</td>
+            <td>0353674231</td>
+            <td>Staff</td>
+            <td>
+                <input type="button" value="Edit" style="background-color: #FFC107; color: black;">
+                <input type="button" value="Delete" style="background-color: #DC3545; color: white;">
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Charles Diya</td>
+            <td>Charles Diya@gmail.com</td>
+            <td>0347658833</td>
+            <td>Staff</td>
+            <td>
+                <input type="button" value="Edit" style="background-color: #FFC107; color: black;">
+                <input type="button" value="Delete" style="background-color: #DC3545; color: white;">
+            </td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Frank Lamido</td>
+            <td>Frank Lamido@gmail.com</td>
+            <td>0975444768</td>
+            <td>Manager</td>
+            <td>
+                <input type="button" value="Edit" style="background-color: #FFC107; color: black;">
+                <input type="button" value="Delete" style="background-color: #DC3545; color: white;">
+            </td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Louis Tom</td>
+            <td>Louis Tom@gmail.com</td>
+            <td>0789568223</td>
+            <td>Staff</td>
+            <td>
+                <input type="button" value="Edit" style="background-color: #FFC107; color: black;">
+                <input type="button" value="Delete" style="background-color: #DC3545; color: white;">
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <!-- New Employee Form -->
+    <table width="70%" align="center" border="1" cellpadding="15" cellspacing="0" bgcolor="white">
+        <tr bgcolor="#007BFF">
+            <td colspan="4">
+                <font color="white" size="4"><b>New Employee</b></font>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%"><b>Name</b></td>
+            <td width="35%"><input type="text" name="name" size="35"></td>
+            <td width="15%"><b>Email</b></td>
+            <td width="35%"><input type="email" name="email" size="35"></td>
+        </tr>
+        <tr>
+            <td><b>Phone</b></td>
+            <td><input type="text" name="phone" size="35"></td>
+            <td><b>Position</b></td>
+            <td>
+                <select name="position" style="width: 100%;">
+                    <option value="">-- Select Position --</option>
+                    <option value="staff" selected>Staff</option>
+                    <option value="manager">Manager</option>
+                    <option value="ceo">CEO</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Sex</b></td>
+            <td colspan="3">
+                <input type="radio" name="sex" value="male"> Male
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="sex" value="female"> Female
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="right">
+                <input type="button" value="Save" style="background-color: #28A745; color: white; padding: 5px 15px;">
+                &nbsp;
+                <input type="button" value="Cancel" style="background-color: #6C757D; color: white; padding: 5px 15px;">
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
