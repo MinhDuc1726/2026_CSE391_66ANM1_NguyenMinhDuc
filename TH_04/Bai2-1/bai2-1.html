@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Đăng Ký</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 30px; max-width: 480px; margin: auto; }
+    h2 { margin-bottom: 20px; }
+    .field { margin-bottom: 16px; }
+    label { display: block; margin-bottom: 4px; font-weight: bold; }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;
+    }
+    input.error { border-color: red; }
+    .err-msg { color: red; font-size: 0.85em; margin-top: 4px; display: none; }
+    .err-msg.show { display: block; }
+    .radio-group label { font-weight: normal; display: inline; margin-right: 12px; }
+    button[type="submit"] { padding: 10px 24px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; }
+    button[type="submit"]:hover { background: #45a049; }
+    #success { display: none; text-align: center; font-size: 1.2em; color: green; }
+  </style>
+</head>
+<body>
+
+<h2>Đăng Ký Tài Khoản</h2>
+
+<form id="form-dk">
+
+  <div class="field">
+    <label>Họ và tên</label>
+    <input type="text" id="hoten">
+    <div class="err-msg" id="err-hoten"></div>
+  </div>
+
+  <div class="field">
+    <label>Email</label>
+    <input type="email" id="email">
+    <div class="err-msg" id="err-email"></div>
+  </div>
+
+  <div class="field">
+    <label>Số điện thoại</label>
+    <input type="text" id="sdt">
+    <div class="err-msg" id="err-sdt"></div>
+  </div>
+
+  <div class="field">
+    <label>Mật khẩu</label>
+    <input type="password" id="matkhau">
+    <div class="err-msg" id="err-matkhau"></div>
+  </div>
+
+  <div class="field">
+    <label>Xác nhận mật khẩu</label>
+    <input type="password" id="xacnhan">
+    <div class="err-msg" id="err-xacnhan"></div>
+  </div>
+
+  <div class="field">
+    <label>Giới tính</label>
+    <div class="radio-group">
+      <input type="radio" name="gioitinh" value="nam"> <label>Nam</label>
+      <input type="radio" name="gioitinh" value="nu"> <label>Nữ</label>
+      <input type="radio" name="gioitinh" value="khac"> <label>Khác</label>
+    </div>
+    <div class="err-msg" id="err-gioitinh"></div>
+  </div>
+
+  <div class="field">
+    <input type="checkbox" id="dieukoan">
+    <label style="display:inline; font-weight:normal">Tôi đồng ý với điều khoản sử dụng</label>
+    <div class="err-msg" id="err-dieukoan"></div>
+  </div>
+
+  <button type="submit">Đăng ký</button>
+</form>
+
+<div id="success"></div>
+
+<script>
+  // --- Tiện ích ---
+  function showError(fieldId, message) {
+    const errEl = document.getElementById("err-" + fieldId);
+    const inputEl = document.getElementById(fieldId);
+    errEl.textContent = message;
+    errEl.classList.add("show");
+    if (inputEl) inputEl.classList.add("error");
+  }
+
+  function clearError(fieldId) {
+    const errEl = document.getElementById("err-" + fieldId);
+    const inputEl = document.getElementById(fieldId);
+    errEl.classList.remove("show");
+    if (inputEl) inputEl.classList.remove("error");
+  }
+
+  // --- Validate từng trường ---
+  function validateHoten() {
+    const val = document.getElementById("hoten").value.trim();
+    if (!val) { showError("hoten", "Họ tên không được để trống"); return false; }
+    if (val.length < 3) { showError("hoten", "Họ tên phải có ít nhất 3 ký tự"); return false; }
+    if (!/^[a-zA-ZÀ-ỹ\s]+$/.test(val)) { showError("hoten", "Họ tên chỉ chứa chữ cái và khoảng trắng"); return false; }
+    clearError("hoten");
+    return true;
+  }
+
+  function validateEmail() {
+    const val = document.getElementById("email").value.trim();
+    if (!val) { showError("email", "Email không được để trống"); return false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { showError("email", "Email không đúng định dạng"); return false; }
+    clearError("email");
+    return true;
+  }
+
+  function validateSdt() {
+    const val = document.getElementById("sdt").value.trim();
+    if (!val) { showError("sdt", "Số điện thoại không được để trống"); return false; }
+    if (!/^0\d{9}$/.test(val)) { showError("sdt", "SĐT phải có 10 chữ số và bắt đầu bằng 0"); return false; }
+    clearError("sdt");
+    return true;
+  }
+
+  function validateMatkhau() {
+    const val = document.getElementById("matkhau").value;
+    if (!val) { showError("matkhau", "Mật khẩu không được để trống"); return false; }
+    if (val.length < 8) { showError("matkhau", "Mật khẩu phải có ít nhất 8 ký tự"); return false; }
+    if (!/[A-Z]/.test(val)) { showError("matkhau", "Mật khẩu phải có ít nhất 1 chữ hoa"); return false; }
+    if (!/[a-z]/.test(val)) { showError("matkhau", "Mật khẩu phải có ít nhất 1 chữ thường"); return false; }
+    if (!/[0-9]/.test(val)) { showError("matkhau", "Mật khẩu phải có ít nhất 1 chữ số"); return false; }
+    clearError("matkhau");
+    return true;
+  }
+
+  function validateXacnhan() {
+    const mk = document.getElementById("matkhau").value;
+    const xn = document.getElementById("xacnhan").value;
+    if (!xn) { showError("xacnhan", "Vui lòng xác nhận mật khẩu"); return false; }
+    if (xn !== mk) { showError("xacnhan", "Mật khẩu xác nhận không khớp"); return false; }
+    clearError("xacnhan");
+    return true;
+  }
+
+  function validateGioitinh() {
+    const checked = document.querySelector('input[name="gioitinh"]:checked');
+    if (!checked) { showError("gioitinh", "Vui lòng chọn giới tính"); return false; }
+    clearError("gioitinh");
+    return true;
+  }
+
+  function validateDieukoan() {
+    if (!document.getElementById("dieukoan").checked) {
+      showError("dieukoan", "Bạn phải đồng ý với điều khoản"); return false;
+    }
+    clearError("dieukoan");
+    return true;
+  }
+
+  // --- Submit ---
+  document.getElementById("form-dk").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Dùng & để tất cả hàm đều được gọi, không dừng sớm
+    const hopLe = validateHoten() & validateEmail() & validateSdt()
+                & validateMatkhau() & validateXacnhan()
+                & validateGioitinh() & validateDieukoan();
+
+    if (hopLe) {
+      const ten = document.getElementById("hoten").value.trim();
+      document.getElementById("form-dk").style.display = "none";
+      const success = document.getElementById("success");
+      success.style.display = "block";
+      success.innerHTML = `Đăng ký thành công! 🎉<br><small>Xin chào, <strong>${ten}</strong>!</small>`;
+    }
+  });
+
+  // --- Blur: validate khi rời ô ---
+  document.getElementById("hoten").addEventListener("blur", validateHoten);
+  document.getElementById("email").addEventListener("blur", validateEmail);
+  document.getElementById("sdt").addEventListener("blur", validateSdt);
+  document.getElementById("matkhau").addEventListener("blur", validateMatkhau);
+  document.getElementById("xacnhan").addEventListener("blur", validateXacnhan);
+
+  // --- Input: xóa lỗi khi gõ lại ---
+  ["hoten", "email", "sdt", "matkhau", "xacnhan"].forEach(function(id) {
+    document.getElementById(id).addEventListener("input", function() {
+      clearError(id);
+    });
+  });
+</script>
+
+</body>
+</html>
