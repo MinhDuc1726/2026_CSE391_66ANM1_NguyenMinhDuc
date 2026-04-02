@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Conference Hub</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery.min.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Conference Hub</h1>
+      <input type="search" id="search" placeholder="Quick search..." />
+      <button id="btnAdd"><strong>Add new</strong></button>     
+      <button id="btnAdd"><strong>List</strong></button>
+      <button id="btnAdd"><strong>Home</strong></button>
+      <button id="btnAdd"><strong>About</strong></button>
+    </header>
+
+    <main>
+      <section class="management-section">
+        <header class="toolbar">
+            <h1>Conference Dashboard</h1>
+            <input type="search" id="search" placeholder="Type to filter table..." />
+        </header>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Conference name</th>
+              <th>Speaker</th>
+              <th>Email</th>
+              <th>Date</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <dialog id="popup">
+      <form id="studentForm">
+        <h3 id="formTitle">Thêm hội thảo</h3>
+        <input type="hidden" id="editIndex" />
+
+        <label for="name">Conference name:</label>
+        <input type="text" id="name" required maxlength="200" />
+        <small class="error" id="errName"></small>
+
+        <label for="Speakers">Speakers:</label>
+        <input type="text" id="Speaker" required />
+        <small class="error" id="errSpeaker"></small>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <small class="error" id="errEmail"></small>
+
+        
+        <label for="Date">Date:</label>
+        <input type="text" id="Date" required />
+        <small class="error" id="errDate"></small>
+
+        <label for="Locatione">Date:</label>
+        <input type="text" id="Location" required />
+        <small class="error" id="errLocation"></small>
+        
+      </form>
+    </dialog>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
